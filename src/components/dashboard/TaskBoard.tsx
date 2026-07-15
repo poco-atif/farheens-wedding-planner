@@ -32,6 +32,9 @@ export function TaskBoard({ tasks }: TaskBoardProps) {
             transition={{ delay: idx * 0.1 }}
           >
             <Card className={`${stat.bg} border-0`}>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg">{stat.label}</CardTitle>
+              </CardHeader>
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
