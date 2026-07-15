@@ -7,11 +7,14 @@ const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-playfair',
 });
-
-export const metadata: Metadata = {
-  title: "Farheen's Wedding Planner",
+export const metadata = {
+   title: "Farheen's Wedding Planner",
   description: 'Premium wedding planning dashboard with elegant design and real-time updates',
-  viewport: 'width=device-width, initial-scale=1',
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1.0,
 };
 
 export default function RootLayout({
