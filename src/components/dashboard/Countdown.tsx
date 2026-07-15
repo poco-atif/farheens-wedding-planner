@@ -6,40 +6,27 @@ import { motion } from 'framer-motion';
 
 const WEDDING_DATE = process.env.NEXT_PUBLIC_WEDDING_DATE || '2027-01-15';
 
-export function Countdown() {
-  const [timeLeft, setTimeLeft] = useState<string>('');
-  const [mounted, setMounted] = useState(false);
+export default function Countdown() {
+  const [daysRemaining, setDaysRemaining] = useState<number>(0);
+  const [weeksRemaining, setWeeksRemaining] = useState<number>(0);
 
   useEffect(() => {
-    setMounted(true);
-    const updateCountdown = () => {
-      const weddingDate = new Date(WEDDING_DATE);
-      const now = new Date();
-      const diff = weddingDate.getTime() - now.getTime();
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-      setTimeLeft(`${days}d ${hours}h ${minutes}m ${seconds}s`);
-    };
-
-    updateCountdown();
-    const interval = setInterval(updateCountdown, 1000);
-    return () => clearInterval(interval);
+    setDaysRemaining(getWeddingDaysRemaining(WEDDING_DATE));
+    setWeeksRemaining(getWeddingWeeksRemaining(WEDDING_DATE));
   }, []);
-
-  if (!mounted) return null;
 
   return (
     <motion.div
-      className="text-center"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
+      className="p-6 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-center"
     >
-      <p className="text-sm text-slate-500 dark:text-slate-400 mb-2">Wedding Countdown</p>
-      <p className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-gold-500 bg-clip-text text-transparent font-display">
-        {timeLeft}
+      <h2 className="text-2xl font-bold text-emerald-700 dark:text-emerald-300 mb-2">
+        Wedding Countdown
+      </h2>
+      <p className="text-lg text-slate-700 dark:text-slate-300">
+        {daysRemaining} days ({weeksRemaining} weeks) remaining
       </p>
     </motion.div>
   );
