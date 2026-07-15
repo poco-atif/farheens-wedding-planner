@@ -24,6 +24,7 @@ export default function ShoppingPage() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
+      {/* Header */}
       <div className="flex justify-between items-center">
         <h1 className="text-4xl font-bold font-display text-slate-900 dark:text-white">Shopping Planner</h1>
         <Button size="lg" className="gap-2">
@@ -67,6 +68,20 @@ export default function ShoppingPage() {
             </div>
           </CardContent>
         </Card>
+      </div>
+
+      {/* Categories */}
+      <div>
+        <h2 className="text-2xl font-semibold mb-4">Categories</h2>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {categories.map((cat) => (
+            <Card key={cat} className="hover:shadow-md transition-shadow">
+              <CardContent className="p-4 text-center">
+                <p className="font-medium text-slate-700 dark:text-slate-300">{cat}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
 
       {/* Items */}
