@@ -80,8 +80,13 @@ export function Sidebar() {
               return (
                 <Link key={item.href} href={item.href}>
                   <Button
-                    variant={isActive ? 'default' : 'ghost'}
-                    className="w-full justify-start"
+                    variant="ghost"
+                    className={cn(
+                      "w-full justify-start",
+                      isActive
+                        ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-950"
+                        : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                    )}
                     onClick={() => setIsOpen(false)}
                   >
                     <Icon className="mr-2 h-4 w-4" />
