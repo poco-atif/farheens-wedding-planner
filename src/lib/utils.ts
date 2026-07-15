@@ -77,3 +77,12 @@ export function getVendorBookingUrgency(
 export function formatTime(date: string): string {
   return formatDistanceToNow(new Date(date), { addSuffix: true });
 }
+
+// ✅ New helper using isPast
+export function getStatusLabel(date: string): string {
+  const target = new Date(date);
+  if (isPast(target)) {
+    return '⚠️ Past Due';
+  }
+  return '✅ Upcoming';
+}
