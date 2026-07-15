@@ -10,7 +10,7 @@ import {
 import { motion } from 'framer-motion';
 import { Calendar, Clock, CheckCircle2,AlertCircle, Zap } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { Countdown } from '@/components/dashboard/Countdown';
+import Countdown from '@/components/dashboard/Countdown';
 import { ProgressRing } from '@/components/dashboard/ProgressRing';
 import { TaskBoard } from '@/components/dashboard/TaskBoard';
 import { BookingStatus } from '@/components/dashboard/BookingStatus';
