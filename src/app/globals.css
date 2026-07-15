@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --font-playfair: 'Playfair Display', serif;
+  --font-inter: 'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--font-inter);
+  @apply bg-white dark:bg-slate-950 text-slate-900 dark:text-white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playfair);
+}
+
+@layer components {
+  .gradient-emerald-gold {
+    @apply bg-gradient-to-r from-emerald-600 to-gold-500;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:border-gold-300 hover:scale-105;
+  }
+
+  .festive-glow {
+    @apply shadow-lg shadow-gold-400/30 dark:shadow-gold-500/20;
+  }
+
+  .btn-primary {
+    @apply px-6 py-2 rounded-lg font-semibold bg-emerald-600 text-white hover:bg-emerald-700 transition-colors;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-2 rounded-lg font-semibold bg-gold-500 text-white hover:bg-gold-600 transition-colors;
+  }
+
+  .card-base {
+    @apply rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow;
+  }
+
+  .progress-bar {
+    @apply h-2 rounded-full bg-gradient-to-r from-emerald-500 to-gold-500 overflow-hidden;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(
+    to right,
+    #f3f4f6 0%,
+    #e5e7eb 50%,
+    #f3f4f6 100%
+  );
+  background-size: 1000px 100%;
+}
