@@ -1,6 +1,6 @@
 'use client';
 
-import { Card, CardContent, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import {
   getWeddingDaysRemaining,
@@ -8,7 +8,7 @@ import {
   getPlanningProgressPercent,
 } from '@/lib/utils';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, CheckCircle2, AlertCircle, Zap } from 'lucide-react';
+import { Calendar, Clock, CheckCircle2, Zap } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Countdown } from '@/components/dashboard/Countdown';
 import { ProgressRing } from '@/components/dashboard/ProgressRing';
